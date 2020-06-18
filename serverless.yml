@@ -1,0 +1,81 @@
+service: ceos-fracture
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 128
+  timeout: 10 #default is 6
+  stage: dev # path will be domain.name.com/dev/...
+  region: us-east-1
+
+# you can add statements to the Lambda function's IAM Role here
+#  iamRoleStatements:
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:ListBucket"
+#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:PutObject"
+#      Resource:
+#        Fn::Join:
+#          - ""
+#          - - "arn:aws:s3:::"
+#            - "Ref" : "ServerlessDeploymentBucket"
+#            - "/*"
+
+# you can define service wide environment variables here
+#  environment:
+#    variable1: value1
+
+package:
+  exclude:
+    - coverage/**
+    - .circleci/**
+
+
+functions:
+  create:
+    handler: handlers/create.create
+    events:
+      - http:
+          path: fracture
+          method: post
+          cors: true
+
+  get:
+    handler: handlers/get.get
+    events:
+      - http:
+          path: fracture/{id}
+          method: get
+          cors: true
+
+  list:
+    handler: handlers/list.list
+    events:
+      - http:
+          path: fracture
+          method: get
+          corst: true
+
+  update:
+    handler: handlers/update.update
+    events:
+      - http:
+          path: fracture/{id}
+          method: put
+          cors: true
+
+  delete:
+    handler: handlers/delete.delete
+    events:
+      - http:
+          path: fracture/{id}
+          method: delete
+          cors: true
+
+
+plugins:
+  - serverless-offline # adding so it can be run offline
+
