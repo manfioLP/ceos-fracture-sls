@@ -45,7 +45,7 @@ const ExposedFractureSchema = new mongoose.Schema({
     default: 'N/A',
     trim: true
   },
-  associatedTraumaInjury: {
+  associatedTraumaInjury: [{
     kind: {
       type: String,
       required: [true, fracture.TRAUMA_KIND_REQUIRED],
@@ -54,7 +54,7 @@ const ExposedFractureSchema = new mongoose.Schema({
     description: {
       type: String,
     }
-  },
+  }],
   firstSurgicalApproach: {
     type: String,
     default: 'N/A',
