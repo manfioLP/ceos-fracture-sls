@@ -1,7 +1,7 @@
 'use strict'
 
-const { connectToDatabase } = require('../../db');
-const { ExposedFracture} = require('../../db/models');
+const { connectToDatabase } = require('../db');
+const { ExposedFracture} = require('../db/models');
 
 module.exports.delete = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;

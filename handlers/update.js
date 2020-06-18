@@ -1,14 +1,15 @@
 'use strict'
 
-const { connectToDatabase } = require('../../db');
-const { ExposedFracture } = require('../../db/models');
+const { connectToDatabase } = require('../db');
+const { ExposedFracture } = require('../db/models');
 
 module.exports.update = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
   connectToDatabase()
     .then(() => {
-      ExposedFracture.findByIdAndUpdate(event.pathParameters.id, JSON.parse(event.body), { new: true })
+      ExposedFracture.findByIdAndUpdate(event.pathParameters.id, JSON.parse(event.body),
+        { new: true, runValidators: true })
         .then(fracture => callback(null, {
           statusCode: 200,
           body: JSON.stringify(fracture)
