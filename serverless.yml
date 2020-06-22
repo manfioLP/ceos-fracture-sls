@@ -33,10 +33,6 @@ package:
     - coverage/**
     - .circleci/**
 
-  include:
-    .env
-
-
 functions:
   create:
     handler: handlers/create.create
