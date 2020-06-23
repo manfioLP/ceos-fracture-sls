@@ -11,7 +11,11 @@ const get = (event, context, callback) => {
       ExposedFracture.findById(event.pathParameters.id)
         .then(fracture => callback(null, {
           statusCode: 200,
-          body: JSON.stringify(fracture)
+          body: JSON.stringify(fracture),
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true,
+          }
         }))
         .catch(err => callback(null, {
           statusCode: err.statusCode || 500,
