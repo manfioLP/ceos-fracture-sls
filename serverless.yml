@@ -56,7 +56,7 @@ functions:
       - http:
           path: fracture
           method: get
-          corst: true
+          cors: true
 
   update:
     handler: handlers/update.update
