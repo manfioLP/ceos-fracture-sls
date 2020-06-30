@@ -8,15 +8,16 @@ const list = (event, context, callback) => {
   // TODO: add filters
   context.callbackWaitsForEmptyEventLoop = false;
 
+  const {page=1, limit=10, skip=page*limit, lm=+limit} = { ...event.queryStringParameters }
+
   connectToDatabase()
     .then(() => {
-      ExposedFracture.find()
+      ExposedFracture.find().limit(lm).skip(skip)
         .then(fractures => {
-          // TODO: add pagination
           const response = {
-            data: fractures,
-            page: 1,
-            total: fractures.length
+            page,
+            perPage: limit,
+            data: fractures
           }
           callback(null, {
             statusCode: 200,
