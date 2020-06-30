@@ -11,14 +11,22 @@ const list = (event, context, callback) => {
   connectToDatabase()
     .then(() => {
       ExposedFracture.find()
-        .then(fracture => callback(null, {
-          statusCode: 200,
-          body: JSON.stringify(fracture),
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true,
+        .then(fractures => {
+          // TODO: add pagination
+          const response = {
+            data: fractures,
+            page: 1,
+            total: fractures.length
           }
-        }))
+          callback(null, {
+            statusCode: 200,
+            body: JSON.stringify(response),
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Credentials': true,
+            }
+          })
+        })
         .catch(err => callback(null, {
           statusCode: err.statusCode || 500,
           headers: { 'Content-Type': 'text/plain' },
