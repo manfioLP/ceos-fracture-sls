@@ -58,6 +58,9 @@ const ExposedFractureSchema = new mongoose.Schema({
   amputation: {
     type: Boolean
   },
+  infection: {
+    type: Boolean
+  },
   patient: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Patient',
