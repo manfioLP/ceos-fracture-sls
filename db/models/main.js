@@ -5,13 +5,13 @@ const { fracture } = require('../errors');
 const ExposedFractureSchema = new mongoose.Schema({
   gustillo: {
     type: String,
-    enum: ['1', '2', '3', 'N/I'],
+    // enum: ['1', '2', '3', 'N/I'],
     default: 'N/I',
     trim: true
   },
   ao: {
     type: String,
-    enum: ['A', 'B', 'C', 'N/I'],
+    // enum: ['A', 'B', 'C', 'N/I'],
     default: 'N/I',
     trim: true
   },
