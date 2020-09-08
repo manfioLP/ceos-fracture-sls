@@ -72,6 +72,10 @@ const ExposedFractureSchema = new mongoose.Schema({
   nervousTraumaDescription: {
     type: String,
     trim: true
+  },
+  instrument: {
+    type: String,
+    trim: true
   }
 }, { timestamps: true });
 module.exports = mongoose.model('ExposedFracture', ExposedFractureSchema);
