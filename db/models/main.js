@@ -49,6 +49,10 @@ const ExposedFractureSchema = new mongoose.Schema({
     type: String,
     trim: true
   }],
+  associatedFractureTraumaInjuryOther: {
+    type: String,
+    trim: truegi
+  }
   firstSurgicalApproach: {
     type: String,
     default: 'N/I',
