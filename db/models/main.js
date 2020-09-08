@@ -73,6 +73,10 @@ const ExposedFractureSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
+  vascularTraumaDescription: {
+    type: String,
+    trim: true
+  },
   instrument: {
     type: String,
     trim: true
