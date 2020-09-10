@@ -74,6 +74,14 @@ functions:
           method: delete
           cors: true
 
+  listAll:
+    handler: handlers/listAll.listAll
+    events:
+      - http:
+          path: fracture/export
+          method: get
+          cors: true
+
 
 plugins:
   - serverless-offline # adding so it can be run offline
