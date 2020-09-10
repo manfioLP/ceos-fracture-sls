@@ -59,10 +59,12 @@ const ExposedFractureSchema = new mongoose.Schema({
     trim: true
   },
   amputation: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   infection: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   patient: {
     type: mongoose.Schema.Types.ObjectId,
@@ -75,11 +77,12 @@ const ExposedFractureSchema = new mongoose.Schema({
   },
   vascularTraumaDescription: {
     type: String,
-    trim: true
+    trim: true,
   },
   instrument: {
     type: String,
-    trim: true
+    trim: true,
+    default: 'N/I'
   }
 }, { timestamps: true });
 module.exports = mongoose.model('ExposedFracture', ExposedFractureSchema);
