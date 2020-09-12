@@ -9,7 +9,6 @@ const count = (event, context, callback) => {
   connectToDatabase()
     .then(() => {
       ExposedFracture.count({}, (err, result) => {
-          console.log(result);
           let response;
           if (err) {
             response = {
