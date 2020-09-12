@@ -6,13 +6,13 @@ const ExposedFractureSchema = new mongoose.Schema({
   gustillo: {
     type: String,
     // enum: ['1', '2', '3', 'N/I'],
-    default: 'N/I',
+    default: '',
     trim: true
   },
   ao: {
     type: String,
-    // enum: ['A', 'B', 'C', 'N/I'],
-    default: 'N/I',
+    // enum: ['A', 'B', 'C', ''],
+    default: '',
     trim: true
   },
   recordNumber: {
@@ -22,27 +22,27 @@ const ExposedFractureSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    default: 'N/I',
+    default: '',
     trim: true
   },
   limb: {
     type: String,
-    default: 'N/I',
+    default: '',
     trim: true
   },
   bone: {
     type: String,
-    default: 'N/I',
+    default: '',
     trim: true
   },
   region: {
     type: String,
-    default: 'N/I',
+    default: '',
     trim: true
   },
   mechanism: {
     type: String,
-    default: 'N/I',
+    default: '',
     trim: true
   },
   associatedFractureTraumaInjury: {
@@ -55,7 +55,7 @@ const ExposedFractureSchema = new mongoose.Schema({
   },
   firstSurgicalApproach: {
     type: String,
-    default: 'N/I',
+    default: '',
     trim: true
   },
   amputation: {
@@ -82,7 +82,7 @@ const ExposedFractureSchema = new mongoose.Schema({
   instrument: {
     type: String,
     trim: true,
-    default: 'N/I'
+    default: ''
   }
 }, { timestamps: true });
 module.exports = mongoose.model('ExposedFracture', ExposedFractureSchema);
