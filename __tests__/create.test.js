@@ -27,10 +27,7 @@ const reqBody = {
   bone: 'metatarso',
   region: 'upperbody',
   mechanism: 'roller accident',
-  associatedTraumaInjury: [{
-    kind: 'articulacao',
-    description: 'rompeu tudo'
-  }],
+  associatedTraumaInjury: '(1) trauma1, (2) trauma2',
   firstSurgicalApproach: 'imobilizacao',
   amputation: false,
   patient: '5edc301ea480e94c8efd914a'
