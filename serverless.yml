@@ -82,6 +82,13 @@ functions:
           method: get
           cors: true
 
+  count:
+    handler: handlers/count.count
+    events:
+      - http:
+          path: fracture/count
+          method: get
+          cors: true
 
 plugins:
   - serverless-offline # adding so it can be run offline
