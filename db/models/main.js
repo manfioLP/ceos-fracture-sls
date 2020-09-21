@@ -83,6 +83,11 @@ const ExposedFractureSchema = new mongoose.Schema({
     type: String,
     trim: true,
     default: ''
+  },
+  complications: {
+    type: String,
+    trim: true,
+    required: [true, 'COmplicacoes eh obrigatorio! se nao tem nada coloca Ausencia ou que nao retornou']
   }
 }, { timestamps: true });
 module.exports = mongoose.model('ExposedFracture', ExposedFractureSchema);
