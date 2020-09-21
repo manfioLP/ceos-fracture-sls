@@ -30,7 +30,8 @@ const reqBody = {
   associatedTraumaInjury: '(1) trauma1, (2) trauma2',
   firstSurgicalApproach: 'imobilizacao',
   amputation: false,
-  patient: '5edc301ea480e94c8efd914a'
+  patient: '5edc301ea480e94c8efd914a',
+  complications: 'teste teste'
 }
 
 describe('Create', () => {
